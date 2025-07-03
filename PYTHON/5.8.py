@@ -1,0 +1,6 @@
+#5.8
+f1=open(input("Enter path of source file: "),"r")
+f2=open(input("Enter path of destination file: "),"a")
+f2.write(f1.read())
+f1.close()
+f2.close()
