@@ -1,0 +1,69 @@
+create database dg;
+use dg;
+create table empl (empno int(4),ename varchar(10),job varchar(10),mgr int(4),hiredate date,sal float(6,2),comm float(6,2),deptno int(2));
+insert into empl values(8369,"SMITH","CLERK",8902,19901218,800.00,NULL,20),
+(8499,"ANYA","SALESMAN",8698,19910220,1600.00,300.00,30),
+(8521,"SETH","SALESMAN",8698,19910222,1250.00,500.00,30),
+(8566,"MAHADEVAN","MANAGER",8839,19910402,2985.00,NULL,20),
+(8654,"MOMIN","SALESMAN",8698,19910928,1250.00,1400.00,30),
+(8698,"BINA","MANAGER",8839,19910501,2850.00,NULL,30),
+(8882,"SHIAVNSH","MANAGER",8839,19910609,2450.00,NULL,10),
+(8888,"SCOTT","ANALYST",8566,19911209,3000.00,NULL,20),
+(8839,"AMIR","PRESIDENT",NULL,19911118,5000.00,NULL,10),
+(8844,"KULDEEP","SALESMAN",8698,19910908,1500.00,0.00,30),
+(8886,"ANOOP","CLERK",8888,19930112,1100.00,NULL,20),
+(8900,"JATIN","CLERK",8698,19911203, 950.00,NULL,30),
+(8902,"FAKIR","ANALYST",8566,19911203,3000.00,NULL,20),
+(8934,"MITA","CLERK",8882,19910123,1300.00,NULL,10);
+select * from empl;
+select ename,sal from empl where sal>=2200;
+select * from empl where comm is null or comm=0;
+select ename,sal from empl where sal not between 2500 and 4000;
+select ename,job,sal from empl where mgr is null;
+select ename from empl where ename like "__A%";
+select ename from empl where ename like "%T";
+select ename from empl where ename like "M_L%";
+
+use dg;
+create table student (StudentNo int(2),Class int(2),Name varchar(10),Game varchar(15),Grade1 char(1),SUPW varchar(15),Grade2 char(1));
+insert into student values(10,7,"Sameer","Cricket","B","Photography","A"),
+(11,8,"Sujit","Tennis","A","Gardening","C"),
+(12,7,"Kamal","Swimming","B","Photography","B"),
+(13,7,"Veena","Tennis","C","Cooking","A"),
+(14,9,"Archana","Basket Ball","A","Literature","A"),
+(15,10,"Arpit","Cricket","A","Gardening","C");
+select * from student;
+select name from student where grade1="C" or grade2="C";
+select distinct game from student;
+select supw from student where name like "A%";
+
+use dg;
+create table sports (StudentNo int(2),Class int(2),Name varchar(10),Game1 varchar(15),Grade1 char(1),Game2 varchar(15),Grade2 char(1));
+select * from sports;
+insert into sports values(10,7,"Sameer","Cricket","B","Swimming","A"),
+(11,8,"Sujit","Tennis","A","Skating","C"),
+(12,7,"Kamal","Swimming","B","Football","B"),
+(13,7,"Veena","Tennis","C","Tennis","A"),
+(14,9,"Archana","Basket Ball","A","Cricket","A"),
+(15,10,"Arpit","Cricket","A","Athletics","C");
+select name from sports where grade1="C" or grade2="C";
+select name from sports where game1=game2;
+select game1,game2 from sports where name like "A%";
+
+use dg;
+create table club (COACH_ID int(2),COACHNAME varchar(10),AGE int(2),SPORTS varchar(15),DATOFAPP date,PAY int(4),SEX char(1));
+select * from club;
+insert into club values(1,"KUKREJA",35,"KARATE",19960327,1000,"M"),
+(2,"RAVINA",34,"KARATE",19980120,1200,"F"),
+(3,"KARAN",34,"SQUASH",19980219,2000,"M"),
+(4,"TARUN",33,"BASKETBALL",19980101,1500,"M"),
+(5,"ZUBIN",36,"SWIMMING",19980112,750,"M"),
+(6,"KETAKI",36,"SWIMMING",19980224,800,"F"),
+(7,"ANKITA",39,"SQUASH",19980220,2200,"F"),
+(8,"ZAREEN",37,"KARATE",19980222,1100,"F"),
+(9,"KUSH",41,"SWIMMING",19980113,900,"M"),
+(10,"SHAILYA",37,"BASKETBALL",19980219,1700,"M");
+select * from club;
+select * from club where coachname is not null;
+select coachname,datofapp from club order by datofapp desc;
+select coachname,pay,age,pay+pay*15/100 as bonus from club;
