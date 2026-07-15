@@ -1,6 +1,5 @@
 #2.9
-d={"January":31,"February":28,"March":31,"April":30,"May":31,"June":30,"July":31,"August":31,
-"September":30,"October":31,"November":30,"December":31}
+d={"January":31,"February":28,"March":31,"April":30,"May":31,"June":30,"July":31,"August":31,"September":30,"October":31,"November":30,"December":31}
 while True:
     print("1. Ask the user to enter a month name and use the dictionary to tell them how many days are in that month.")
     print("2. Print out all of the keys in alphabetical order.")
